@@ -1,0 +1,26 @@
+/* Estilos de celdas mensuales coherentes con la estética calm */
+.day-card{
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.02);
+  box-shadow: 0 6px 22px rgba(0,0,0,0.35);
+  padding: 10px 12px;
+  min-height: 88px;
+  transition: transform .2s ease-out, filter .2s ease-out, border-color .2s ease-out, box-shadow .2s ease-out;
+}
+.day-card:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.02);
+  border-color: rgba(160,130,255,0.40);
+  box-shadow: 0 10px 32px rgba(120,100,255,0.12), 0 18px 48px rgba(99,199,255,0.10);
+}
+.day-muted{ opacity: .5; }
+.day-today{
+  box-shadow: 0 0 15px rgba(120,100,255,0.30);
+  border-color: rgba(160,130,255,0.40);
+}
+
+/* Indicadores mínimos */
+.dot{ display:inline-block; width:6px; height:6px; border-radius:9999px; opacity:.9; }
+.dot-violet{ background: #8e7cff; }
+.dot-blue{ background: #63c7ff; }

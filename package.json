@@ -1,0 +1,39 @@
+{
+  "name": "agendo-monorepo",
+  "private": true,
+  "version": "0.2.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:api": "npm --workspace @agendo/api run dev",
+    "dev:web": "npm --workspace @agendo/web run dev",
+    "dev:all": "concurrently \"ollama serve\" \"npm run dev:api\" \"npm run dev:web\"",
+    "prisma:gen": "prisma generate --schema apps/api/prisma/schema.prisma",
+    "prisma:migrate": "prisma migrate dev -n init --schema apps/api/prisma/schema.prisma",
+    "postinstall": "npm --workspace @agendo/api exec prisma generate"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/three": "^0.181.0",
+    "concurrently": "^9.0.1",
+    "next": "^14.2.11",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.0",
+    "autoprefixer": "^10.4.21",
+    "axios": "^1.13.2",
+    "clsx": "^2.1.1",
+    "gsap": "^3.14.2",
+    "lucide-react": "^0.552.0",
+    "next-pwa": "^5.6.0",
+    "postcss": "^8.5.6",
+    "postprocessing": "^6.37.8",
+    "prisma": "^6.19.0",
+    "tailwindcss": "^4.1.16",
+    "three": "^0.180.0",
+    "tweakpane": "^4.0.5"
+  }
+}

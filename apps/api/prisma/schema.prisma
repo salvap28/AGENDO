@@ -1,0 +1,191 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                  String                @id @default(cuid())
+  email               String                @unique
+  name                String?
+  passwordHash        String
+  isDev               Boolean               @default(false)
+  preferences         Json?
+  createdAt           DateTime              @default(now())
+  blocks              Block[]
+  completions         CompletionFeedback[]
+  checkIns            DailyMetric[]
+  dayStates           DayState[]
+  focuses             Focus[]
+  onboarding          OnboardingState?
+  pushSubscriptions   PushSubscription[]
+  tasks               Task[]
+  weeklyInsightsCache WeeklyInsightsCache[]
+  weights             WeightLog[]
+}
+
+model Block {
+  id               String               @id @default(cuid())
+  userId           String
+  date             String
+  start            String
+  end              String
+  title            String
+  color            String?
+  completed        Boolean              @default(false)
+  repeatRule       Json?
+  repeatExceptions Json?                @default("[]")
+  notifications    Json?
+  createdAt        DateTime             @default(now())
+  user             User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  completions      CompletionFeedback[]
+
+  @@index([userId, date])
+}
+
+model Task {
+  id               String               @id @default(cuid())
+  userId           String
+  date             String
+  title            String
+  priority         String?
+  done             Boolean              @default(false)
+  repeatRule       Json?
+  repeatExceptions Json?                @default("[]")
+  notifications    Json?
+  createdAt        DateTime             @default(now())
+  updatedAt        DateTime             @updatedAt
+  completions      CompletionFeedback[]
+  user             User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, date])
+}
+
+model CompletionFeedback {
+  id                 String   @id @default(cuid())
+  userId             String
+  taskId             String?
+  blockId            String?
+  instanceDate       String
+  completedAt        DateTime @default(now())
+  feeling            String
+  focus              String
+  interrupted        Boolean
+  interruptionReason String?
+  timeDelta          String
+  note               String?
+  createdAt          DateTime @default(now())
+  block              Block?   @relation(fields: [blockId], references: [id])
+  task               Task?    @relation(fields: [taskId], references: [id])
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, instanceDate])
+  @@index([taskId])
+  @@index([blockId])
+}
+
+model OnboardingState {
+  userId                  String   @id
+  completed               Boolean  @default(false)
+  profileInfo             Json?
+  goals                   Json?
+  aiSettings              Json?
+  notificationPreferences Json?
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+  user                    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model DailyMetric {
+  id            String   @id @default(cuid())
+  userId        String
+  date          String
+  sleepDuration Float?   @map("sleepHrs")
+  sleepQuality  Int?     @map("caffeine")
+  energyLevel   Int?
+  mood          String?
+  stress        String?
+  focus         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now()) @updatedAt
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, date])
+}
+
+model DayState {
+  id        String   @id @default(cuid())
+  userId    String
+  date      String
+  note      String?
+  tags      Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, date])
+}
+
+model WeightLog {
+  id        String   @id @default(cuid())
+  userId    String
+  date      String
+  weightKg  Float
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, date])
+}
+
+model PushSubscription {
+  id        String   @id @default(cuid())
+  userId    String
+  endpoint  String   @unique
+  p256dh    String
+  auth      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model WeeklyInsightsCache {
+  id        String   @id @default(cuid())
+  userId    String
+  date      String
+  insights  Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, date], name: "userId_date")
+  @@index([userId, date])
+}
+
+model Focus {
+  id        String   @id @default(cuid())
+  userId    String
+  name      String
+  emoji     String?
+  color     String?
+  isSystem  Boolean  @default(false)
+  isHidden  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([userId, isHidden])
+}
+
+model SentNotification {
+  id             String   @id @default(cuid())
+  notificationId String   @unique
+  sentAt         DateTime @default(now())
+
+  @@index([notificationId])
+}

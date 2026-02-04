@@ -1,0 +1,34 @@
+{
+  "subscriptions": [
+    {
+      "endpoint": "https://fcm.googleapis.com/fcm/send/ehOYSUZs0CU:APA91bGDlfcCnwfj30dttdcGqGGoJc_kC8Ukv_HXAe-rPOn5kXSdBxeShR17a1evQi-1ef4F5mDJa3tPH4dl_xO_z2cLiT0FGqGkQkIQjwjCDumzlprAm6QC3g96CO_yCtznDMehPn6n",
+      "expirationTime": null,
+      "keys": {
+        "p256dh": "BFxdVJ3Osj2bLaoozSR9pFM3ewjexO16a-uqcxDfKI1Nzj1bprCZ1l6MZWfXVkKS8WXQ_TYUyWQBraQ9JayL0EE",
+        "auth": "P-Sm8JJu6fp8rrp3s-MNhg"
+      }
+    },
+    {
+      "endpoint": "https://web.push.apple.com/QC-_ZzaBtIWSo5rn0imBmpyZzNn6EbltErsYBmOYP8IhOPcP0J7JoQE0_LtdgNXIhUVaYzq8s2MCKjKxB2aRiEBy0sUMdc9qEEXQIfvn0b073NEBnCGyBspQaoFIDXCiQUDh5T8IGAFyo8XPH7uacKeb_Grc1QYUos6D9aYMebU",
+      "keys": {
+        "p256dh": "BJdEnSWKwrvnkhpPL1doARz025cCeV448MlX3bcFFuZx25Eg8KTRLOZOGNQ04GElM7_LXm7wN1nRFxtRyvSzVZE",
+        "auth": "Ge-5xl16euRrFyaI02YlWg"
+      }
+    },
+    {
+      "endpoint": "https://web.push.apple.com/QO1lZgmDA0Gw1-VR-CPYrIxlXXggzDyBC8HcX6U0zrnVRg7VlyQxJLIKNwHlavT8urcm1iljI9v2BqHxDAcjpAcXoRq4OnRpVHFd-iao53bMI5vZd4VZ55LAxuhTXeqErb-tHzB4x7Tj6xjtjUJHBjEYCz1z9SdUyWLmBcowY3s",
+      "keys": {
+        "p256dh": "BHZcuSbixwDBipjXD2VgrwpJ-bHhmbmkHCPjpGFKkx2xfyVb31J4GoohBRjYeHEY9uSmbvTGaq_NDIFTbem4im4",
+        "auth": "hScHH-EeNjfx-PcKP-7Mdg"
+      }
+    },
+    {
+      "endpoint": "https://wns2-bl2p.notify.windows.com/w/?token=BQYAAABW9PgWOmg5a8CH0rTd9am6dWNzJPYUhVMa3%2fGIVQGFOyNMdNo8Fa%2fXWdvPNZnodlbJpwDbtfM%2ffWwMPEyUyPtdusG13132ZiemPPS%2fFCj83WH%2b7YTNKIUgAhzh1QUYi2y5tGKaxrYIOZiPCO5l8WHRX2YkVRwgdzR5ykCfkXibJnc4uMX1QweDhCzZBzN0RHCSlcngOgtDiP%2fFHsqlr7hagOUuYJ3OSMv6iIrVgvS8rUTAhyRjDOxaii3K5V4buC4e%2f2ZnWkbgdWDqetbDPeA1yzkqC32zMvjVX4bmxbFSg8eZNFm93FfpKPlaXJmHbnUAq4xU3ZpRmQgbee7mm8Km",
+      "expirationTime": null,
+      "keys": {
+        "p256dh": "BOWK3cDsY7pQkI6Sp9ITeBSpdlGXd88VyUuauH4gTtzqwPlKfig6z28rwfOtrXd2-ezWpy7UCcGYrqYGpYJnEqY",
+        "auth": "a-Fg6MkLZ4fApAZtXZPy9g"
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+🎉 ¡Nueva Actualización: Planeación Inteligente 2.0!
+
+La IA ahora te hace preguntas inteligentes para crear planes más personalizados. Podés editar horarios directamente en el plan generado (hover sobre las tareas) y elegir si actualizar solo una instancia o todas las futuras.
+
+Nuevas características:
+✨ Preguntas inteligentes sobre horarios preferidos
+✏️ Edición de horarios con hover
+🎨 Pantallas de carga mejoradas
+🛡️ Prevención automática de conflictos
+
+¡Probá la nueva experiencia en Planear el día → Planeación Inteligente!
+
+
+
+
+
+
+
+

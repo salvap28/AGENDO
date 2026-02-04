@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* LiquidGlass26 Palette */
+  --glass-bg: rgba(3, 5, 16, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-highlight: rgba(255, 255, 255, 0.12);
+  --glass-blur: 40px;
+  --glass-filter: blur(60px);
+  --glass-panel-radius: 24px;
+
+  /* Colors */
+  --accent-rgb: 123, 108, 255;
+  --teal-rgb: 86, 225, 233;
+  --violet-rgb: 123, 108, 255;
+  --base-rgb: 3, 5, 16;
+
+  /* Text */
+  --text-body: rgba(255, 255, 255, 0.75);
+  --text-strong: #ffffff;
+  --text-dim: rgba(255, 255, 255, 0.45);
+}
+
+.app-bg {
+  background-color: rgb(var(--base-rgb));
+  color: var(--text-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .material-liquid26 {
+    position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-filter) saturate(160%);
+  }
+
+  .material-liquid26::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.07), transparent 60%),
+      radial-gradient(circle at 50% 100%, rgba(86, 225, 233, 0.05), transparent 60%);
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  .material-liquid26::after {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+    mask: linear-gradient(to bottom, black, transparent);
+  }
+}
+
+.card,
+.glass-panel,
+.checkin-panel {
+  @apply material-liquid26;
+  border-radius: var(--radius-xl);
+}
+
+.agendo-topbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 20;
+  padding: 10px 0;
+  background: rgba(5, 6, 16, 0.78);
+  backdrop-filter: blur(36px) saturate(150%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 35px 110px rgba(0, 0, 0, 0.6);
+  isolation: isolate;
+}
+
+.agendo-topbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.35);
+  opacity: 0.6;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.agendo-topbar::after {
+  content: '';
+  position: absolute;
+  inset: 4px 10%;
+  border-radius: var(--radius-pill);
+  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.2), transparent 70%);
+  filter: blur(40px);
+  opacity: 0.6;
+  pointer-events: none;
+}
+

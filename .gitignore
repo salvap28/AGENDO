@@ -1,0 +1,12 @@
+node_modules/
+.next/
+dist/
+build/
+coverage/
+.env*
+*.db
+.DS_Store
+.idea/
+.vscode/
+
+/generated/prisma

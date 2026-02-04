@@ -1,0 +1,12 @@
+{
+  "subscriptions": [
+    {
+      "endpoint": "https://fcm.googleapis.com/fcm/send/dt9rUDB-1WU:APA91bGPq5R0_wGVMYiIwQNfkQ7D5LvenR9eQWx2zDTcykxsffv8Yn7bwe3snNbAKE-JKkBK6L5swzjfAD_M1DQWmVwKJbLVFwXxsiBdOFvoGaWwlz5YRnAUTMhffvJfHJKGNg0Z0QIk",
+      "expirationTime": null,
+      "keys": {
+        "p256dh": "BCfzsj77KGNlq23U1MPKzURnhSvNs1ghlBm4ABd08jvIiMCAJ76oiVyLzE5ScQlQ-sgsaM5fvzZWDno69Vs1jPU",
+        "auth": "eQz_lRxZUBnrK-KD97XbOw"
+      }
+    }
+  ]
+}

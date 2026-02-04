@@ -1,0 +1,32 @@
+// === Step 1 (Fase 3) — Modelos Agendo ===
+// Copiá/mergeá estos modelos a tu prisma/schema.prisma principal.
+// Este archivo NO es usado por Prisma directamente; es para que merges manualmente.
+
+model Block {
+  id        Int      @id @default(autoincrement())
+  title     String
+  date      DateTime   // fecha del bloque
+  start     String     // HH:mm
+  end       String     // HH:mm
+  minutes   Int?
+  tag       String?
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Metric {
+  id        Int      @id @default(autoincrement())
+  key       String
+  value     Float
+  date      DateTime @default(now())
+  createdAt DateTime @default(now())
+}
+
+model Insight {
+  id        Int      @id @default(autoincrement())
+  kind      String
+  message   String
+  date      DateTime @default(now())
+  createdAt DateTime @default(now())
+}
